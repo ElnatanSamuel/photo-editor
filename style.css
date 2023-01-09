@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yellowtail&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choose-img {
+  padding: 10px 10px;
+  font-weight: bold;
+  font-size: 12px;
+  background: #c3083f;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.save-img {
+  padding: 10px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  background: #6f2232;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  outline: none;
+  margin-right: 10px;
+}
+
+.logo {
+  padding-left: 10px;
+  color: #c3083f;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.editor-panel {
+  flex: 1;
+  background: #191919;
+  color: white;
+  padding: 0 10px;
+}
+
+.preview-panel {
+  flex: 5;
+  background: #2b2b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.options {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.filter-btns {
+  background: transparent;
+  width: 100px;
+  padding: 10px 0;
+  border: 1px solid #950741;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-btns:hover {
+  background: #950741;
+  /* color: #1a1a1c; */
+}
+
+.active {
+  background: #950741;
+}
+
+.rotate-options {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rotate-btns {
+  padding: 10px 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #950741;
+  width: 40px;
+}
+
+.reset-filter {
+  padding: 10px 10px;
+  font-weight: bold;
+  font-size: 12px;
+  background: #4e4e50;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.slider {
+  margin-top: 20px;
+}
+
+.filter-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
