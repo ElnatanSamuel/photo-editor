@@ -41,26 +41,39 @@
     <nav class="navbar">
       <p class="logo">Online Photo Editor</p>
       <div class="btns-main">
+        <input type="file" class="file-input" accept="image/*" hidden />
         <button class="choose-img">Choose image</button>
-        <button class="save-img">Save image</button>
+        <button class="save-img disable">Save image</button>
       </div>
     </nav>
     <div class="container">
-      <div class="editor-panel">
+      <div class="editor-panel dont-show">
         <div class="filter">
           <label class="title">Filters</label>
           <div class="options">
-            <button class="filter-btns active">Brightness</button>
-            <button class="filter-btns">Saturation</button>
-            <button class="filter-btns">Inversion</button>
-            <button class="filter-btns">Grayscale</button>
+            <button id="brightness" class="filter-btns active">
+              Brightness
+            </button>
+            <button id="saturation" class="filter-btns">Saturation</button>
+            <button id="inversion" class="filter-btns">Inversion</button>
+            <button id="grayscale" class="filter-btns">Grayscale</button>
+            <button id="sepia" class="filter-btns">Sepia</button>
+            <button id="blur" class="filter-btns">Blur</button>
+            <button id="opacity" class="filter-btns">Opacity</button>
+            <button id="contrast" class="filter-btns">Contrast</button>
           </div>
           <div class="slider">
             <div class="filter-info">
               <p class="name">Brightness</p>
               <p class="value">100%</p>
             </div>
-            <input type="range" value="100" min="0" max="200" />
+            <input
+              class="slide-range"
+              type="range"
+              value="100"
+              min="0"
+              max="200"
+            />
           </div>
         </div>
         <div class="rotate">
@@ -86,5 +99,6 @@
         <img src="./assets/placeholder1.webp" alt="preview" />
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
