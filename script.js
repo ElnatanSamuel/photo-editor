@@ -8,6 +8,7 @@ const filterValue = document.querySelector(".filter-info .value");
 const rotateOptions = document.querySelectorAll(".rotate button");
 const resetFilterBtn = document.querySelector(".reset-filter");
 const saveImgBtn = document.querySelector(".save-img");
+const previewPanel = document.querySelector(".preview-panel");
 
 let brightness = 100,
   saturation = 100,
@@ -26,11 +27,13 @@ const applyFilters = () => {
   previewImg.style.transform = `rotate(${rotate}deg) scale(${flipHorizontal}, ${flipVertical})`;
   previewImg.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%) sepia(${sepia}%) blur(${blur}px) opacity(${opacity}%) contrast(${contrast}%)`;
 };
+
 const loadImage = () => {
   let file = fileInput.files[0];
   if (!file) return;
   previewImg.src = URL.createObjectURL(file);
   previewImg.addEventListener("load", () => {
+    document.querySelector(".preview-panel img").classList.add("img-preview");
     resetFilterBtn.click();
     document.querySelector(".editor-panel").classList.remove("dont-show");
     document.querySelector(".save-img").classList.remove("disable");
