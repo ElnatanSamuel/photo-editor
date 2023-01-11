@@ -1,0 +1,23 @@
+{
+  "name": "photo-editor",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Simple photo editor app",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElnatanSamuel/photo-editor.git"
+  },
+  "author": "Elnatan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElnatanSamuel/photo-editor/issues"
+  },
+  "homepage": "https://github.com/ElnatanSamuel/photo-editor#readme",
+  "dependencies": {
+    "interactjs": "^1.10.17"
+  }
+}

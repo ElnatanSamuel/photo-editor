@@ -80,6 +80,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
 .title {
@@ -166,4 +167,61 @@ body {
   width: 800px;
   height: 600px;
   object-fit: cover;
+}
+
+.insert {
+  margin-top: 20px;
+}
+
+.inputtxtbtn {
+  margin-top: 10px;
+  background: transparent;
+  /* width: 100px; */
+  padding: 10px 10px;
+  border: 1px solid #950741;
+  color: rgba(255, 255, 255, 0.9);
+
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-text {
+  font-size: 17px;
+  font-weight: bold;
+  color: #fff;
+  padding-right: 5px;
+}
+
+.text-area {
+  background: transparent;
+  border: 1px solid gray;
+  padding: 10px 10px;
+  font-size: 25px;
+  outline: none;
+  color: gray;
+
+  max-height: max-content;
+}
+
+.text-area::placeholder {
+  font-weight: lighter;
+}
+
+#div-text {
+  position: absolute;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#div-textheader {
+  width: 30px;
+  height: 20px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196f3;
+  color: #fff;
 }

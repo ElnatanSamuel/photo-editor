@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./node_modules/cropperjs/dist/cropper.css" rel="stylesheet" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -93,12 +94,26 @@
             </button>
           </div>
         </div>
+
+        <div class="insert">
+          <label class="title">Insert</label>
+          <button class="inputtxtbtn">
+            <i class="uil uil-text icon-text"></i>
+            <p>Insert text</p>
+          </button>
+        </div>
+
         <button class="reset-filter">Reset Filters</button>
       </div>
       <div class="preview-panel">
         <img src="./assets/placeholder1.webp" alt="preview" />
       </div>
     </div>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

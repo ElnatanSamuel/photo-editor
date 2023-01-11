@@ -1,3 +1,5 @@
+// import interact from "./node_modules/@interactjs/types/index";
+
 const fileInput = document.querySelector(".file-input");
 const chooseImgBtn = document.querySelector(".choose-img");
 const previewImg = document.querySelector(".preview-panel img");
@@ -9,6 +11,7 @@ const rotateOptions = document.querySelectorAll(".rotate button");
 const resetFilterBtn = document.querySelector(".reset-filter");
 const saveImgBtn = document.querySelector(".save-img");
 const previewPanel = document.querySelector(".preview-panel");
+const textInput = document.querySelector(".inputtxtbtn");
 
 let brightness = 100,
   saturation = 100,
@@ -150,6 +153,9 @@ const saveImage = () => {
   }
   ctx.scale(flipHorizontal, flipVertical);
 
+  //   console.log(canvas.width);
+  //   console.log(canvas.height);
+
   ctx.drawImage(
     previewImg,
     -canvas.width / 2,
@@ -157,7 +163,18 @@ const saveImage = () => {
     canvas.width,
     canvas.height
   );
-  //   document.body.appendChild(canvas);
+  if (document.querySelector("#div-text") !== null) {
+    const textValue = document.querySelectorAll(".text-area");
+    textValue.forEach((option) => {
+      //   const wholeDiv = document.querySelector("#div-text");
+      //   const rect = wholeDiv.getBoundingClientRect();
+      ctx.fillStyle = "black";
+      ctx.font = "bold 18px Arial";
+      ctx.fillText(option.value, 50, 50);
+    });
+  }
+
+  document.body.appendChild(canvas);
 
   const link = document.createElement("a");
   link.download = "image.jpg";
@@ -165,8 +182,88 @@ const saveImage = () => {
   link.click();
 };
 
+const textInputBtn = () => {
+  const textArea = document.createElement("textarea");
+  const headerDiv = document.createElement("div");
+  const mainDiv = document.createElement("div");
+  headerDiv.innerHtml = `<i class="uil uil-expand-arrows"></i>`;
+  mainDiv.setAttribute("id", "div-text");
+  headerDiv.setAttribute("id", "div-textheader");
+  mainDiv.appendChild(headerDiv);
+  mainDiv.appendChild(textArea);
+  textArea.classList.add("text-area");
+  textArea.placeholder = "Insert text";
+  previewPanel.appendChild(mainDiv);
+
+  //
+  //
+  //
+  //
+
+  dragElement(document.getElementById("div-text"));
+
+  function dragElement(elmnt) {
+    var pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      // otherwise, move the DIV from anywhere inside the DIV:
+      elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // calculate the new cursor position:
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // set the element's new position:
+      elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+      elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+    }
+
+    function closeDragElement() {
+      // stop moving when mouse button is released:
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+  //
+  //
+  //
+  //
+};
+//
+//
+//
+//
+//
+
+//
+//
+//
+//
+//
 fileInput.addEventListener("change", loadImage);
 filterSlider.addEventListener("input", updateFilter);
 resetFilterBtn.addEventListener("click", resetFilter);
 saveImgBtn.addEventListener("click", saveImage);
 chooseImgBtn.addEventListener("click", () => fileInput.click());
+textInput.addEventListener("click", textInputBtn);
